@@ -54,3 +54,30 @@ const imagens = [
     }
   ];
 
+let anterior = document.querySelector('#anterior');
+let posterior = document.querySelector('#proximo');
+let slide = document.querySelector("#slide");
+
+let imgTxt = (slide.src.substring(servidorDasImagens.length));
+
+let index = 0;
+for (let i = 0; i < imagens.length; i++) {
+  if (imagens[i].arquivo == imgTxt){
+    index = i;
+  }
+}
+
+// event listener - #anterior
+anterior.addEventListener('click', function(){
+  index = (index > 0) ? (index - 1) : (imagens.length - 1);
+  slide.src = servidorDasImagens+'/'+imagens[index].arquivo;
+  slide.alt = servidorDasImagens+'/'+imagens[index].descricao;
+});
+
+// event listener - #proximo
+posterior.addEventListener('click', function(){
+  index = (index < (imagens.length-1)) ? index + 1 : 0;
+  slide.src = servidorDasImagens+'/'+imagens[index].arquivo;
+  slide.alt = servidorDasImagens+'/'+imagens[index].descricao;
+});
+console.log(slide.src);
