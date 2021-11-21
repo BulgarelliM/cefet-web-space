@@ -80,4 +80,3 @@ posterior.addEventListener('click', function(){
   slide.src = servidorDasImagens+'/'+imagens[index].arquivo;
   slide.alt = servidorDasImagens+'/'+imagens[index].descricao;
 });
-console.log(slide.src);
